@@ -1,0 +1,13 @@
+body {
+  background-color: blue;
+}
+
+@font-face {
+  font-family: 'myfont';
+  src: url('./assets/font/6778.ttf'), url('./assets/font/6778.woff');
+}
+
+h1 {
+  font-family: 'myfont';
+  font-size: 50px;
+}
