@@ -19,7 +19,6 @@ function resolve(dir) {
 const webpackDevConfig = {
   mode: 'development',
   devServer: {
-    // contentBase: path.join(__dirname, 'dist'),
     hot: true,
     host: 'localhost',
     inline: true,

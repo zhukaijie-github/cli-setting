@@ -12,11 +12,14 @@ function resolve(dir) {
 
 module.exports = {
   // 入口文件配置
-  entry: './src/main.js', // 项目入口文件，webpack将从main.js开始，把所有依赖的js都打包
-  // 多入口
-  // entry: {
-  //   app: './src/main.js',
-  // },
+
+  // 单入口
+  // entry: './src/main.js', // 项目入口文件，webpack将从main.js开始，把所有依赖的js都打包
+
+  //多入口
+  entry: {
+    app: './src/main.js',
+  },
   // 输出目录配置
   output: {
     path: path.resolve(__dirname, '../dist'), // 项目的打包后的输出路径 可修改
@@ -104,7 +107,10 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[name].[hash:8].[ext]',
-              publicPath: '../font',
+              publicPath:
+                process.env.NODE_ENV === 'production'
+                  ? '../font'
+                  : '/static/font',
               outputPath: 'static/font',
             },
           },

@@ -41,6 +41,10 @@ const webpackProdConfig = {
   ],
   // 压缩js
   optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+    runtimeChunk: true,
     minimizer: [
       new UglifyJsPlugin({
         uglifyOptions: {
@@ -50,5 +54,4 @@ const webpackProdConfig = {
     ],
   },
 };
-console.log(process.env.NODE_ENV);
 module.exports = merge(webpackBaseConfig, webpackProdConfig);
